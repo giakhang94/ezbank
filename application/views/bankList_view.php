@@ -23,7 +23,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title" style="text-align: center">Danh sách ngân hàng</h3>
                     <a class="btn btn-info" href="addBank" >Thêm bank</a>
-                    <a class="btn btn-success" href="?page=login" >Về dashboard</a>
+                    <a class="btn btn-success" href="login" >Về dashboard</a>
                 </div>
                 <div class="panel-body">
                     

@@ -21,7 +21,7 @@
             <div class="panel-heading">
                     <h3 class="panel-title">Thêm bank #EzBank</h3>
                     <a class="btn btn-info" href="listbank">Về trang bank</a>
-                    <a class="btn btn-success" href="?page=login" >Về dashboard</a>
+                    <a class="btn btn-success" href="login" >Về dashboard</a>
             </div>
             <div class="panel-body">
                 <?php foreach ($data_value2 as $key => $value) :
