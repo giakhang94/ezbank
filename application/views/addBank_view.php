@@ -21,7 +21,7 @@
             <div class="panel-heading">
                     <h3 class="panel-title">Thêm bank #EzBank</h3>
                     <a class="btn btn-info" href="listbank">Về trang bank</a>
-                    <a class="btn btn-success" href="login" >Về dashboard</a>
+                    <a class="btn btn-success" href="<?=base_url();?>index.php/admin/login" >Về dashboard</a>
             </div>
             <div class="panel-body">
                 <?php foreach ($data_value2 as $key => $value) :
@@ -30,30 +30,38 @@
                     <form action="http://localhost/mvc/ezbank/index.php/bank/insertData/<?php echo $value['id']?>" method="POST" enctype="multipart/form-data" role="">
                         <legend>Thêm thông tin ngân hàng</legend>
                         <div class="form-group">
+                            <?php echo form_error('bank', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">Tên bank</label>
                             <input value = "<?php echo $value['bank']?>" name="bank" type="text" class="form-control" id="bank" placeholder="Ví dụ: mother f*cker">
                         </div>
                         <div class="form-group">
+                            <?php echo form_error('fix_interest', '<div class="alert alert-danger">', '</div>'); ?>
+
                             <label for="">lãi_fix</label>
                             <input value = "<?php echo $value['fix_interest']?>"name="fix_interest" type="number" step="any" class="form-control" id="fix_interest" placeholder="Lãi cố định">
                         </div>
                         <div class="form-group">
+                            <?php echo form_error('12m_interest', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">lãi_12m</label>
                             <input value = "<?php echo $value['12m_interest']?>"name="12m_interest" type="number" step="any" class="form-control" id="12m_interest" placeholder="lãi ưu đãi 12 tháng">
                         </div>
                         <div class="form-group">
+                            <?php echo form_error('time_build', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">Tgian sua nha</label>
                             <input value = "<?php echo $value['time_build']?>"name = "time_build"type="number" step="any" class="form-control" id="time_build" placeholder="TG vay suanha">
                         </div>
                         <div class="form-group">
+                            <?php echo form_error('time_buy', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">TG_muanha</label>
                             <input value = "<?php echo $value['time_buy']?>"name="time_buy"type="number" step="any" class="form-control" id="time_buy" placeholder="TG vay muanha">
                         </div>
                         <div class="form-group">
+                            <?php echo form_error('time_business', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">TG_kdoanh</label>
                             <input value = "<?php echo $value['time_business']?>"name="time_business"type="number" step="any" class="form-control" id="time_business" placeholder="12 hoặc 24 tháng thôi">
                         </div>
                         <div class="form-group">
+                            <?php echo form_error('time_consumer', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">TG_tiedung</label>
                             <input value = "<?php echo $value['time_consumer']?>" name="time_consumer"type="number" step="any" class="form-control" id="time_consumer" placeholder="TG vay tieu dung">
                         </div>

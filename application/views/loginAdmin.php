@@ -222,31 +222,31 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="listbank" class="nav-link">
+                <a href="../bank/listbank" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách Ngân hàng</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="addbank" class="nav-link">
+                <a href="../bank/addbank" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Thêm Ngân hàng</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="listuser" class="nav-link">
+                <a href="../user/listuser" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách user</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="adduser" class="nav-link">
+                <a href="../user/adduser" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Thêm user</p>
                 </a>
               </li>              
               <li class="nav-item">
-                <a href="bank" class="nav-link">
+                <a href="../bank" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Xem trang chủ</p>
                 </a>

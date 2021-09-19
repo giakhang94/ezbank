@@ -20,32 +20,37 @@
         <div class="panel panel-primary">
             <div class="panel-heading">
                     <h3 class="panel-title">Thêm bank #EzBank</h3>
-                    <a class="btn btn-info" href="http://localhost/mvc/ezbank/index.php/bank/listuser">Về trang user</a>
-                    <a class="btn btn-success" href="http://localhost/mvc/ezbank/index.php/bank/login" >Về dashboard</a>
+                    <a class="btn btn-info" href="http://localhost/mvc/ezbank/index.php/user/listuser">Về trang user</a>
+                    <a class="btn btn-success" href="http://localhost/mvc/ezbank/index.php/admin/login" >Về dashboard</a>
             </div>
             <div class="panel-body">
                 <?php foreach ($data_value as $key => $value) :
                     var_dump($value['user_name']);
                 ?>
-                    <form action="http://localhost/mvc/ezbank/index.php/bank/insertUser/<?php echo $value['id']?>" method="POST" enctype="multipart/form-data" role="">
+                    <form action="http://localhost/mvc/ezbank/index.php/user/insertUser/<?php echo $value['id']?>" method="POST" enctype="multipart/form-data" role="">
                         <legend>Thêm thông tin ngân hàng</legend>
                         <div class="form-group">
+                            <?php echo form_error('name', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">Tên user</label>
                             <input value = "<?php echo $value['name']?>" name="name" type="text" class="form-control" id="name" placeholder="Tên người quản trị">
                         </div>
                         <div class="form-group">
+                            <?php echo form_error('user_name', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">User ID</label>
                             <input value = "<?php echo $value['user_name']?>"name="user_name" type="text" step="any" class="form-control" id="user_name" placeholder="tên đăng nhập">
                         </div>
                         <div class="form-group">
+                            <?php echo form_error('pass', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">Pass</label>
                             <input value = "<?php echo $value['pass']?>"name="pass" type="password" step="any" class="form-control" id="pass" placeholder="Mật khẩu đăng nhập">
                         </div>
                         <div class="form-group">
+                            <?php echo form_error('email', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">Email</label>
                             <input value = "<?php echo $value['email']?>"name = "email"type="text" step="any" class="form-control" id="email" placeholder="email">
                         </div>
                         <div class="form-group">
+                            <?php echo form_error('phone', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">Phone Number</label>
                             <input value = "<?php echo $value['phone']?>"name="phone"type="text" step="any" class="form-control" id="phone" placeholder="số điện thoại">
                         </div>

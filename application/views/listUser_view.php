@@ -21,9 +21,9 @@
     <body>
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title" style="text-align: center">Danh sách ngân hàng</h3>
+                    <h3 class="panel-title" style="text-align: center">Danh sách Quản trị viên</h3>
                     <a class="btn btn-info" href="adduser" >Thêm user</a>
-                    <a class="btn btn-success" href="login" >Về dashboard</a>
+                    <a class="btn btn-success" href="../admin/login" >Về dashboard</a>
                 </div>
                 <div class="panel-body">
                     
