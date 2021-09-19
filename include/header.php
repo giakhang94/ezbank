@@ -31,11 +31,13 @@
                     <li><a href="#">Vay mua xe oto</a></li>
                     <li><a href="#">Vay kinh doanh ngắn hạn</a></li>
                     <li><a href="#">Vay tiêu dùng</a></li>
+
                 </ul>
             </li>
             <li><a href="#">Vay tín chấp</a></li>
             <li><a href="#">Đăng nhu cầu vay</a></li>
             <li><a href="#">Đổi ngân hàng vay</a></li>
+            <li><a href="<?php echo base_url()?>index.php/admin/login">Đăng nhập</a></li>
 
         </ul>
     </div>

@@ -195,12 +195,40 @@ class Bank extends CI_Controller {
 			header("location: http://localhost/mvc/ezbank/index.php/bank/listBank");
 		}
 		else {echo "xoá bank error";}
+	}	
+	public function caculate()
+	{
+		$mucdich = $this->input->post('mucdich');
+		$sotien = $this->input->post('sotien');
+		$time = $this->input->post('time');
+		$time =floatval($time);
+		$sotien=floatval($sotien);
+		$mucdich =floatval($mucdich);
+		if ($mucdich == 1) {
+			$spvay = 'Vay Mua Nhà';
+		}else if ($mucdich == 2) {
+			$spvay = 'Vay Sửa Nhà';
+		}else if ($mucdich == 3) {
+			$spvay = 'Vay Kinh doanh';
+		}else {
+			$spvay = 'Vay tiêu dùng';
+		}
+		$this->load->model('bank_model');
+		$data = $this->bank_model->getBank();
+		$data2['mucdich'] = $mucdich;
+		$data2['sotien']=$sotien;
+		$data2['time']=$time;
+		$data2['spvay']=$spvay;
+
+		$data = array ('data_homepage'=>$data, 'datapost'=>$data2);
+
+
+				// echo "<pre>";
+				// var_dump($data);
+				// echo "</pre>";
+
+		$this->load->view('homePage_result_view', $data, FALSE);
 	}
-	//tạo function nếu còn session thì cho đăng nhập tiếp xài tiếp
-	
-
-	
-
 }
 
 

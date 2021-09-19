@@ -1,5 +1,10 @@
 <?php
     $this->load->helper('url');
+    function currency_format($number, $suffix = 'đ') {
+    if (!empty($number)) {
+        return number_format($number, 0, ',', '.') . "{$suffix}";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="vie">
@@ -66,8 +71,7 @@
                 <option value="1">Vay mua nhà</option>
                 <option value="2">Vay sửa nhà</option>
                 <option value="3">Vay kinh doanh ngắn hạn</option>
-                <option value="3">Vay Tiêu dùng</option>
-                <option value="3">Vay Mua xe oto</option>
+                <option value="3">Vay Ô-tô/Tiêu dùng</option>
             </select>
             </br>
             <div class="chon-sp">
@@ -97,16 +101,18 @@
         </form>
         <div class="container">
             <div class="row">
-                <h2>Danh sách Ngân hàng gợi ý</h2>
+                <h2>Danh sách Ngân hàng gợi ý --- <?php echo $datapost['spvay'];?></h2>
             </div>
             <hr>
             <!-- từ cái này là 1 card -->
+            <?php foreach ($data_homepage as $key => $value) :
+            ?>
             <div class="row row-margin-bottom">
                 <div class="col-md-12 no-padding lib-item" style="align-content:center" data-category="view">
                     <div class="lib-panel">
                         <div class="row box-shadow">
                             <div class="col-md-6 info-logo">
-                                <img class="lib-img-show logo-bank" src="./img/LOGO-VIB-Blue.png ">
+                                <img class="lib-img-show logo-bank" src="<?php echo base_url();?>uploads/<?php echo $value['logo']; ?> ">
                             </div>
                             <div class="col-md-6 ">
 
@@ -115,7 +121,7 @@
                                         <span type=" " style="font-size:20px; " class="badge badge-primary vay-info ">
                                             Lãi suất
                                         </span>
-                                        <span style="margin-left:25px; ">12.7%</span>
+                                        <span style="margin-left:25px; "><?=$value['12m_interest'];echo "%/năm - ưu đãi 12 tháng"?></span>
                                     </div>
                                     <!-- <div class="lib-header-seperator "></div> -->
                                 </div>
@@ -124,7 +130,32 @@
                                         <span type=" " style="font-size:20px; " class="badge badge-primary vay-info ">
                                             Thời hạn
                                         </span>
-                                        <span style="margin-left:25px; ">360 tháng (tối đa)</span>
+                                        <span style="margin-left:25px; ">
+                                            <?php 
+
+                                               if ($datapost['mucdich']==1) {
+                                                    if($datapost['time'] <= floatval($value['time_buy'])){
+                                                        echo $datapost['time'];echo " tháng";
+                                                        $t = $datapost['time'];
+                                                    }
+                                                    else {echo $value['time_buy']; echo " tháng";echo " (tối đa)"; $t =  floatval($value['time_buy']);}
+                                                }else if($datapost['mucdich']=='2') {
+                                                    if($datapost['time'] <= floatval($value['time_build'])){
+                                                        echo $datapost['time']; echo " tháng";
+                                                        $t = $datapost['time'];
+                                                    }
+                                                    else {echo $value['time_buy']; echo " tháng";echo " (tối đa)"; $t = floatval($value['time_build']);}
+                                                }else if($datapost['mucdich']=='3') {
+                                                    echo $value['time_business'];echo " tháng";
+                                                }else {
+                                                    if($datapost['time'] <= floatval($value['time_consumer'])){
+                                                        echo $datapost['time'];echo " tháng";
+                                                        $t = $datapost['time'];
+                                                    }else {echo $value['time_consumer']; echo " tháng";echo " (tối đa)"; $t = floatval($value['time_consumer']);}
+                                                }
+
+                                            ?>        
+                                        </span>
                                     </div>
                                     <!-- <div class="lib-header-seperator "></div> -->
                                 </div>
@@ -133,7 +164,13 @@
                                         <span type=" " style="font-size:20px; " class="badge badge-primary vay-info ">
                                             Gốc hàng tháng
                                         </span>
-                                        <span style="margin-left:25px; ">5,000,000 đồng</span>
+                                        <span style="margin-left:25px; ">
+                                            <?php 
+                                            $goc = round($datapost['sotien']/$t,3);
+                                            echo currency_format($goc," đồng/tháng");
+                                            ?>
+                                                
+                                        </span>
                                     </div>
                                     <!-- <div class="lib-header-seperator "></div> -->
                                 </div>
@@ -142,13 +179,18 @@
                                         <span type=" " style="font-size:20px; " class="badge badge-primary vay-info ">
                                             Lãi tháng đầu
                                         </span>
-                                        <span style="margin-left:25px; ">15,000,000</span>
+                                        <span style="margin-left:25px; ">
+                                            <?php
+                                                $lai = round($datapost['sotien']*floatval($value['12m_interest'])/1200,3);
+                                                echo currency_format($lai," đồng/tháng"); 
+                                            ?>
+                                        </span>
                                     </div>
                                     <div class="lib-header-seperator "></div>
                                 </div>
 
                                 <div class="lib-row lib-desc " style="text-align: left; ">
-                                    <!-- </br> -->
+                                    </br>
                                     <button class="btn btn-success " style=" width: 100% ">Xem bảng tính gốc lãi chi tiết</button>
                                 </div>
                             </div>
@@ -157,6 +199,7 @@
                 </div>
             </div>
             <!-- hết 1 card -->
+            <?php endforeach?>
         </div>
         <div class="btn-cha ">
             <button class="btn-readmore btn btn-primary ">Xem thêm ngân hàng</button>
