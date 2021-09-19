@@ -23,9 +23,6 @@ class Bank extends CI_Controller {
 			$res=$this->bank_model->getBankById($id);
 		}
 		$res=array ('data_value2'=>$res);
-				echo "<pre>";
-				print_r($res);
-				echo "</pre>";
 
 		$this->load->view('addBank_view', $res);
 	}
@@ -135,15 +132,28 @@ class Bank extends CI_Controller {
 				{
 					header("location: http://localhost/mvc/ezbank/index.php/bank/addbank");
 				}
-				}else 
+				else 
 				{
 					echo "lỗi upload, insert đổi tên file";
 				}
 			}
 		}
-
-		
-
+	}
+	public function listBank()
+	{
+		$this->load->model('bank_model');
+		$res = $this->bank_model->getBank();
+		$res = array ('data_bank'=>$res);
+		$this->load->view('bankList_view', $res, FALSE);
+	}
+	public function xoaBank($id)
+	{
+		$this->load->model('bank_model');
+		$res = $this->bank_model->deleteBank($id);
+		if ($res){
+			header("location: http://localhost/mvc/ezbank/index.php/bank/listBank");
+		}
+		else {echo "xoá bank error";}
 	}
 }
 

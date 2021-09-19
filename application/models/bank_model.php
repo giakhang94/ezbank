@@ -66,6 +66,21 @@ class Bank_model extends CI_Model {
 		$res = $this->db->update('bank', $object);
 		return $res;
 	}
+	public function getBank()
+	{
+		$this->db->select('*');
+		$res = $this->db->get('bank');
+		$res = $res->result_array();
+		return $res;
+
+	}
+	public function deleteBank($id)
+	{
+		$this->db->select('*');
+		$this->db->where('id', $id);
+		$res=$this->db->delete('bank');
+		return $res;
+	}
 
 }
 
