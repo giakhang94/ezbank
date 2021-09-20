@@ -380,3 +380,9 @@ body {
     background-color: #22aec4;
     font-size: 20px;
 }
+.lib-panel .lib-row.lib-desc #btn_xembank {
+    position: relative;
+    width: 100%;
+    bottom: 10px;
+     left: 0px; 
+}

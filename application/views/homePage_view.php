@@ -69,6 +69,12 @@
                 <option value="3">Vay Tiêu dùng</option>
                 <option value="3">Vay Mua xe oto</option>
             </select>
+        </br>
+            <select name="loai_laisuat" id="input" class="form-control select-spvay" required="required">
+                <option selected>Chọn loai lai suat</option>
+                <option value="1">Ưu đãi 12 tháng</option>
+                <option value="2">Cố định không phạt</option>
+            </select>
             </br>
             <div class="chon-sp">
                 <div class="form-check">

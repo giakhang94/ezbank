@@ -201,9 +201,12 @@ class Bank extends CI_Controller {
 		$mucdich = $this->input->post('mucdich');
 		$sotien = $this->input->post('sotien');
 		$time = $this->input->post('time');
+		$loai_ls = $this->input->post('loai_laisuat');
+		$loai_ls = floatval($loai_ls);
 		$time =floatval($time);
 		$sotien=floatval($sotien);
 		$mucdich =floatval($mucdich);
+		//tính loại sản phẩm vay
 		if ($mucdich == 1) {
 			$spvay = 'Vay Mua Nhà';
 		}else if ($mucdich == 2) {
@@ -218,6 +221,7 @@ class Bank extends CI_Controller {
 		$data2['mucdich'] = $mucdich;
 		$data2['sotien']=$sotien;
 		$data2['time']=$time;
+		$data2['loai_ls'] = $loai_ls;
 		$data2['spvay']=$spvay;
 
 		$data = array ('data_homepage'=>$data, 'datapost'=>$data2);
@@ -225,9 +229,21 @@ class Bank extends CI_Controller {
 
 				// echo "<pre>";
 				// var_dump($data);
-				// echo "</pre>";
+				// echo "</pre>";exit;
 
 		$this->load->view('homePage_result_view', $data, FALSE);
+	}
+	public function excel($id, $sotien, $tgian, $mucdich, $spvay, $laisuat)
+	{
+		$this->load->model('bank_model');
+		$res = $this->bank_model->getBankById($id);
+		$data['sotien']=$sotien;
+		$data['tgian']=$tgian;
+		$data['spvay']=$spvay;
+		$data['mucdich']=$mucdich;
+		$data['laisuat']=$laisuat;
+		$res = array ('data_getbyid'=> $res, 'data_excel'=>$data);
+		$this->load->view('excel_view', $res, FALSE);
 	}
 }
 

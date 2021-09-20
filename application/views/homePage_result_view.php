@@ -1,10 +1,10 @@
 <?php
     $this->load->helper('url');
     function currency_format($number, $suffix = 'đ') {
-    if (!empty($number)) {
-        return number_format($number, 0, ',', '.') . "{$suffix}";
+        if (!empty($number)) {
+            return number_format($number, 0, ',', '.') . "{$suffix}";
+        }
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="vie">
@@ -72,6 +72,12 @@
                 <option value="2">Vay sửa nhà</option>
                 <option value="3">Vay kinh doanh ngắn hạn</option>
                 <option value="3">Vay Ô-tô/Tiêu dùng</option>
+            </select>           
+        </br>
+            <select name="loai_laisuat" id="input" class="form-control select-spvay" required="required">
+                <option selected>Chọn loai lai suat</option>
+                <option value="1">Ưu đãi 12 tháng</option>
+                <option value="2">Cố định không phạt</option>
             </select>
             </br>
             <div class="chon-sp">
@@ -121,7 +127,20 @@
                                         <span type=" " style="font-size:20px; " class="badge badge-primary vay-info ">
                                             Lãi suất
                                         </span>
-                                        <span style="margin-left:25px; "><?=$value['12m_interest'];echo "%/năm - ưu đãi 12 tháng"?></span>
+                                        <span style="margin-left:25px; ">
+                                            <?php 
+                                                if($datapost['loai_ls'] == 1){
+                                                    echo $value['12m_interest'];echo "%/năm - ưu đãi 12 tháng";
+                                                    $laisuat = $value['12m_interest'];
+                                                }else 
+                                                {
+                                                    echo $value['fix_interest']; echo"%/năm - Có miễn phạt trả trước";
+                                                    $laisuat = $value['fix_interest'];
+                                                }
+                                               $laisuat = floatval($laisuat);
+                                            ?>
+                                                    
+                                        </span>
                                     </div>
                                     <!-- <div class="lib-header-seperator "></div> -->
                                 </div>
@@ -139,13 +158,13 @@
                                                         $t = $datapost['time'];
                                                     }
                                                     else {echo $value['time_buy']; echo " tháng";echo " (tối đa)"; $t =  floatval($value['time_buy']);}
-                                                }else if($datapost['mucdich']=='2') {
+                                                }else if($datapost['mucdich']==2) {
                                                     if($datapost['time'] <= floatval($value['time_build'])){
                                                         echo $datapost['time']; echo " tháng";
                                                         $t = $datapost['time'];
                                                     }
                                                     else {echo $value['time_buy']; echo " tháng";echo " (tối đa)"; $t = floatval($value['time_build']);}
-                                                }else if($datapost['mucdich']=='3') {
+                                                }else if($datapost['mucdich']==3) {
                                                     echo $value['time_business'];echo " tháng";
                                                 }else {
                                                     if($datapost['time'] <= floatval($value['time_consumer'])){
@@ -166,8 +185,12 @@
                                         </span>
                                         <span style="margin-left:25px; ">
                                             <?php 
-                                            $goc = round($datapost['sotien']/$t,3);
-                                            echo currency_format($goc," đồng/tháng");
+                                            
+                                            if ($datapost['mucdich'] != 3){
+                                                $goc = round($datapost['sotien']/$t,3);
+                                                echo currency_format($goc," đồng/tháng");
+                                            }
+                                            else {echo "0 đ/tháng => gốc cuối kỳ";}
                                             ?>
                                                 
                                         </span>
@@ -181,7 +204,7 @@
                                         </span>
                                         <span style="margin-left:25px; ">
                                             <?php
-                                                $lai = round($datapost['sotien']*floatval($value['12m_interest'])/1200,3);
+                                                $lai = round($datapost['sotien']*$laisuat/1200,3);
                                                 echo currency_format($lai," đồng/tháng"); 
                                             ?>
                                         </span>
@@ -191,7 +214,7 @@
 
                                 <div class="lib-row lib-desc " style="text-align: left; ">
                                     </br>
-                                    <button class="btn btn-success " style=" width: 100% ">Xem bảng tính gốc lãi chi tiết</button>
+                                    <a class="btn btn-info btn_xembank" id="btn_xembank" href="<?php echo base_url();?>index.php/bank/excel/<?php echo $value['id'];?>/<?=$datapost['sotien']?>/<?=$t?>/<?=$datapost['mucdich']?>/<?=$datapost['spvay']?>/<?=$laisuat?>" style=" width: 90% ;">Xem bảng tính gốc lãi chi tiết</a>
                                 </div>
                             </div>
                         </div>
