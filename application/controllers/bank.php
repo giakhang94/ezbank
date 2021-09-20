@@ -73,6 +73,9 @@ class Bank extends CI_Controller {
 	}
 	public function insertData($id = 0)
 	{
+		if(!$this->input->post()){
+			header(base_url()."index.php/bank/addbank");
+		}
 		$this->load->library('session');
 		$this->load->helper('form');
 		if($this->session->userdata('user')){

@@ -68,6 +68,9 @@ class User extends CI_Controller {
 	}
 	public function insertUser($id = 0)
 	{
+		if(!$this->input->post()){
+			header(base_url()."index.php/user/addUser");
+		}
 		$this->load->library('session');
 		if($this->session->userdata('user')){
 			$this->form_validation->set_rules('name','Tên người dùng','required|max_length[50]');
