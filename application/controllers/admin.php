@@ -22,7 +22,7 @@ class Admin extends CI_Controller {
 		}
 		else{
 			// $this->load->view('loginform_fail_view');
-			redirect('http://localhost/mvc/ezbank/index.php/admin/loginform');
+			redirect(base_url().'index.php/admin/loginform');
 		}
 	}
 	public function login()
@@ -36,7 +36,7 @@ class Admin extends CI_Controller {
 		}
 		else{
 			// $this->load->view('loginform_fail_view');
-			redirect('http://localhost/mvc/ezbank/index.php/admin/loginform');
+			redirect(base_url().'index.php/admin/loginform');
 		}
 	}
 
@@ -57,7 +57,7 @@ class Admin extends CI_Controller {
 		if($user_data)
 		{
 			$this->session->set_userdata('user',$user_data);
-			redirect('http://localhost/mvc/ezbank/index.php/admin/login');
+			redirect(base_url().'index.php/admin/login');
 		}else 
 		{
 			$this->load->view('loginform_fail_view');
@@ -71,7 +71,7 @@ class Admin extends CI_Controller {
 		//load session library
 		$this->load->library('session');
 		$this->session->unset_userdata('user');
-		redirect('http://localhost/mvc/ezbank/index.php/bank');
+		redirect(base_url().'index.php/bank');
 	}
 
 	
