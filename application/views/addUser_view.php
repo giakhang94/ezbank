@@ -32,27 +32,27 @@
                         <div class="form-group">
                             <?php echo form_error('name', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">Tên user</label>
-                            <input value = "<?php echo $value['name']?>" name="name" type="text" class="form-control" id="name" placeholder="Tên người quản trị">
+                            <input value = "<?php echo set_value('name', $data_set_value['name']);?>" name="name" type="text" class="form-control" id="name" placeholder="Tên người quản trị">
                         </div>
                         <div class="form-group">
                             <?php echo form_error('user_name', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">User ID</label>
-                            <input value = "<?php echo $value['user_name']?>"name="user_name" type="text" step="any" class="form-control" id="user_name" placeholder="tên đăng nhập">
+                            <input value = "<?php echo set_value('user_name', $data_set_value['user_name']);?>"name="user_name" type="text" step="any" class="form-control" id="user_name" placeholder="tên đăng nhập">
                         </div>
                         <div class="form-group">
                             <?php echo form_error('pass', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">Pass</label>
-                            <input value = "<?php echo $value['pass']?>"name="pass" type="password" step="any" class="form-control" id="pass" placeholder="Mật khẩu đăng nhập">
+                            <input value = "<?php echo set_value('pass', $data_set_value['pass']);?>"name="pass" type="password" step="any" class="form-control" id="pass" placeholder="Mật khẩu đăng nhập">
                         </div>
                         <div class="form-group">
                             <?php echo form_error('email', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">Email</label>
-                            <input value = "<?php echo $value['email']?>"name = "email"type="text" step="any" class="form-control" id="email" placeholder="email">
+                            <input value = "<?php echo set_value('email', $data_set_value['email']);?>"name = "email"type="text" step="any" class="form-control" id="email" placeholder="email">
                         </div>
                         <div class="form-group">
                             <?php echo form_error('phone', '<div class="alert alert-danger">', '</div>'); ?>
                             <label for="">Phone Number</label>
-                            <input value = "<?php echo $value['phone']?>"name="phone"type="text" step="any" class="form-control" id="phone" placeholder="số điện thoại">
+                            <input value = "<?php echo set_value('phone', $data_set_value['phone']);?>"name="phone"type="text" step="any" class="form-control" id="phone" placeholder="số điện thoại">
                         </div>
                         </div>
                         <?php endforeach ?>

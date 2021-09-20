@@ -40,8 +40,8 @@ class User_model extends CI_Model {
 		);
 		$this->db->select('*');
 		$this->db->where('id',$id);
-		$res = $this->db->update('user', $object);
-		return $res;
+		return  $this->db->update('user', $object);
+		
 	}
 	public function getUser()
 	{
