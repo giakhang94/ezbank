@@ -6,7 +6,7 @@
 - KH điền lại thông tin liên hệ, công ty liên hệ tư vấn, thu phí và connect khách hàng với ngân hàng (nếu vay), và bên cho mượn tiền đáo hạn rút sổ chuyển ngân hàng khác (nếu là đáo hạn)
 - Khách hàng nhấn nút "Tìm ngân hàng" -> xem danh sách gợi ý
 - khác hàng nhấn nút "xem bảng tính gốc lãi chi tiết" để xem lãi+gốc hàng tháng chi tết ra sao
-- ## Đăng nhập trang admin
+## Đăng nhập trang admin
 
 - **Link đăng nhập**:https://codereviewing.com/index.php/admin/login (**user name**: Test_user/**Password**: test123)
 - **Link đăng xuất**:https://codereviewing.com/index.php/admin/logout
