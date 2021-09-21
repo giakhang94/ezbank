@@ -10,9 +10,7 @@
 ## Các đường dẫn chính:
 
 - **Trang chủ** https://codereviewing.com/index.php/bank
-- **Thêm (hoặc edit) thông tin user** https://codereviewing.com/index.php/user/addUser
-- **user name**: Test_user
-- **Password**: test123
+- **Thêm (hoặc edit) thông tin user** https://codereviewing.com/index.php/user/addUser (**user name**: Test_user/**Password**: test123)
 - **Thêm (hoặc edit) thông tin Ngân hàng** https://codereviewing.com/index.php/bank/addBank
 - **Xoá user** https://codereviewing.com/index.php/user/xoaUser
 - **Xoá Ngân hàng** https://codereviewing.com/index.php/bank/xoaBank
