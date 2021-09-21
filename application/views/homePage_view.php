@@ -54,7 +54,7 @@
 
     <div class="header-site container">
         <?php 
-            include "./include/header.php";
+            include "./include/header_homepage.php";
             include "./include/carousel.php";
         ?>
     <div class="main container">
@@ -107,61 +107,7 @@
             </div>
             <hr>
             <!-- từ cái này là 1 card -->
-            <div class="row row-margin-bottom">
-                <div class="col-md-12 no-padding lib-item" style="align-content:center" data-category="view">
-                    <div class="lib-panel">
-                        <div class="row box-shadow">
-                            <div class="col-md-6 info-logo">
-                                <img class="lib-img-show logo-bank" src="./img/LOGO-VIB-Blue.png ">
-                            </div>
-                            <div class="col-md-6 ">
 
-                                <div class="lib-row lib-header goc-info ">
-                                    <div class=" " style="text-align: left; " href=" ">
-                                        <span type=" " style="font-size:20px; " class="badge badge-primary vay-info ">
-                                            Lãi suất
-                                        </span>
-                                        <span style="margin-left:25px; ">12.7%</span>
-                                    </div>
-                                    <!-- <div class="lib-header-seperator "></div> -->
-                                </div>
-                                <div class="lib-row lib-header goc-info ">
-                                    <div class=" " style="text-align: left; " href=" ">
-                                        <span type=" " style="font-size:20px; " class="badge badge-primary vay-info ">
-                                            Thời hạn
-                                        </span>
-                                        <span style="margin-left:25px; ">360 tháng (tối đa)</span>
-                                    </div>
-                                    <!-- <div class="lib-header-seperator "></div> -->
-                                </div>
-                                <div class="lib-row lib-header goc-info ">
-                                    <div class=" " style="text-align: left; " href=" ">
-                                        <span type=" " style="font-size:20px; " class="badge badge-primary vay-info ">
-                                            Gốc hàng tháng
-                                        </span>
-                                        <span style="margin-left:25px; ">5,000,000 đồng</span>
-                                    </div>
-                                    <!-- <div class="lib-header-seperator "></div> -->
-                                </div>
-                                <div class="lib-row lib-header goc-info ">
-                                    <div class=" " style="text-align: left; " href=" ">
-                                        <span type=" " style="font-size:20px; " class="badge badge-primary vay-info ">
-                                            Lãi tháng đầu
-                                        </span>
-                                        <span style="margin-left:25px; ">15,000,000</span>
-                                    </div>
-                                    <div class="lib-header-seperator "></div>
-                                </div>
-
-                                <div class="lib-row lib-desc " style="text-align: left; ">
-                                    <!-- </br> -->
-                                    <button class="btn btn-success " style=" width: 100% ">Xem bảng tính gốc lãi chi tiết</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!-- hết 1 card -->
         </div>
         <div class="btn-cha ">
@@ -169,7 +115,6 @@
         </div>
 
     </div>
-    <p>Fuck Bank</p>
     <!-- Site footer -->
     <?php include "./include/footer.php"?>
 

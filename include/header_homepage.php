@@ -23,8 +23,10 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form> -->
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="<?=base_url()?>index.php/bank">Vay thế chấp</a>
+            <li  >
+                <a href="<?=base_url()?>index.php/bank#input1" >Vay thế chấp</a>
+                <ul class="dropdown-menu menu-sub">
+                </ul>
             </li>
             <li><a href="<?=base_url()?>index.php/customer">Vay tín chấp</a></li>
             <li><a href="<?php echo base_url()?>index.php/customer">Đăng nhu cầu vay</a></li>

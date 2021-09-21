@@ -294,11 +294,31 @@ class Bank extends CI_Controller {
 		$this->load->model('Bank_model');
 		$res = $this->Bank_model->getBankById($id);
 		$data['sotien']=$sotien;
+		$sotienvay = $sotien;
 		$data['tgian']=$tgian;
 		$data['spvay']=$spvay;
 		$data['mucdich']=$mucdich;
 		$data['laisuat']=$laisuat;
-		$res = array ('data_getbyid'=> $res, 'data_excel'=>$data);
+		$goc = round($sotien/$tgian,3);	
+		for ($i=1; $i <= $tgian ; $i++) { 
+			$excel[$i]['thang_thu'] = $i+1;
+			$excel[$i]['goc'] = $goc;
+			$duno = $sotienvay;
+			$excel[$i]['duno'] = $duno;
+			if ($i <= 12) {
+				$lai = $laisuat*$duno/1200;
+			}else {
+				$lai = $res[0]['fix_interest']*$duno/1200;
+			}
+			$excel[$i]['lai'] = $lai;
+			$tongcong = $goc + $lai;
+			$excel[$i]['tongcong'] = $tongcong;
+			$conlai = $sotienvay - $goc;
+			$excel[$i]['conlai'] = $conlai;
+			$sotienvay = $conlai;
+
+		}
+		$res = array ('data_getbyid'=> $res, 'data_excel'=>$data, 'excel_caculate'=>$excel);
 		$this->load->view('excel_view', $res, FALSE);
 	}
 }

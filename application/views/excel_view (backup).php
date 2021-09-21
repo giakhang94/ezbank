@@ -48,7 +48,7 @@
         </div>
         <div class="container panel panel-info excel-info">
             <div class="panel-heading info-heading">
-                <h2 class="panel-title" style = "text-align: center;">Ngân hàng: <?=$data_getbyid[0]['bank'];?> -> Số tiền vay: <?=currency_format($sotien, " đồng")?> - Lãi suất: <?=$laisuat?>%/năm- Thời gian vay: <?=$tgian?> tháng</h2>
+                <h2 class="panel-title">Ngân hàng: <?=$data_getbyid[0]['bank'];?> -> Số tiền vay: <?=currency_format($sotien, " đồng")?> - Lãi suất: <?=$laisuat?>%/năm- Thời gian vay: <?=$tgian?> tháng</h2>
             </div>
             <div style="text-align: center"class="disclaimer">
                 <h5 class="disclaimer-text alert alert-warning">Thông tin bên dưới chỉ có tính tương đối để anh chị tham khảo - Không đúng chính xác 100% so với thực tế</h5> 
@@ -70,22 +70,30 @@
                     </thead>
                     <tbody>
                     <?php
-
+                        $duno = $sotien;
+                        $conlai = $sotien-$goc;
                         for($i=1; $i <=$tgian; $i++): 
                     ?>
                         <tr>
                             <td><?=$i;?></td>
-                            <td><?=currency_format($excel_caculate[$i]['duno'],"đ")?></td>
-                            <td><?=currency_format($excel_caculate[$i]['goc'],"đ");?></td>
+                            <td><?=currency_format($duno,"đ")?></td>
+                            <td><?=currency_format($goc,"đ");?></td>
                             <td>
                                 <?php 
-                                    echo currency_format($excel_caculate[$i]['lai'], "đ");
+                                    if ($i<=12):
+                                        echo currency_format(round($laisuat*$duno/1200,3),"đ");
+                                    else:
+                                        $laisuat_sau12m = $data_getbyid[0]['fix_interest'];
+                                        echo currency_format(round($data_getbyid[0]['fix_interest']*$duno/1200,3),"đ");
+                                    endif;
                                 ?>
                             </td>
-                            <td><?=currency_format($excel_caculate[$i]['conlai'],"đ");?></td>
-                            <td><?=currency_format(round($excel_caculate[$i]['tongcong'],3),"đ")?></td>
+                            <td><?=currency_format($conlai,"đ");?></td>
+                            <td><?=currency_format(round($goc+(($i<=12)?$laisuat:$laisuat_sau12m)*$duno/1200,3),"đ")?></td>
                         </tr>
                         <?php
+                            $duno = $conlai;
+                            $conlai = $conlai-$goc;
                         endfor;
                         ?>
                     </tbody>
