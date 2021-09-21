@@ -44,15 +44,15 @@ class Admin extends CI_Controller {
 	
 	public function loginForm($value='')
 	{
-		$this->load->view('loginform_view');
+		$this->load->view('loginForm_view');
 	}
 	public function loginChecker()
 	{
 		$this->load->library('session');
 		$user = $this->input->post('user');
 		$pass = $this->input->post('pass');
-		$this->load->model('user_model');
-		$user_data = $this->user_model->login_checker_model($user, $pass); //gọi model để kiểm tra đăng nhập và lấy thông tin user nếu đúng
+		$this->load->model('User_model');
+		$user_data = $this->User_model->login_checker_model($user, $pass); //gọi model để kiểm tra đăng nhập và lấy thông tin user nếu đúng
 		//khúc này copy trêng mạng -> đại loại là nếu đăng nhập đúng => trả về array -> $user_data sẽ có giá trị => thì tạo session cho user;
 		if($user_data)
 		{
@@ -60,7 +60,7 @@ class Admin extends CI_Controller {
 			redirect(base_url().'index.php/admin/login');
 		}else 
 		{
-			$this->load->view('loginform_fail_view');
+			$this->load->view('loginForm_fail_view');
 			// echo "<a class='alert alert-danger' href='http://localhost/mvc/ezbank/index.php/bank/login'>Sai thông tin đăng nhập </a>";
 			$this->session->set_flashdata('error','Invalid login. User not found');
 		}

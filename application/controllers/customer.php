@@ -11,7 +11,7 @@ class Customer extends CI_Controller {
 
 	public function index()
 	{	
-		$this->load->view('forminfo_view');
+		$this->load->view('formInfo_view');
 	}
 	public function insertFormInfo()
 	{
@@ -23,8 +23,8 @@ class Customer extends CI_Controller {
 		$HK = $this->input->post('hoKhau');
 		$CIC = $this->input->post('CIC');
 		$honNhan = $this->input->post('honNhan'); 
-		$this->load->model('customer_model');
-		$res = $this->customer_model->insertCustomerDemand($name, $email, $phone, $demand, $income,$HK, $CIC, $honNhan);
+		$this->load->model('Customer_model');
+		$res = $this->Customer_model->insertCustomerDemand($name, $email, $phone, $demand, $income,$HK, $CIC, $honNhan);
 		if($res){
 			$location = "location: ".base_url()."index.php/customer/form_success";
 			header($location);
@@ -51,8 +51,8 @@ class Customer extends CI_Controller {
 		$HK = $this->input->post('hoKhau');
 		$CIC = $this->input->post('CIC');
 		$honNhan = $this->input->post('phapLy'); 
-		$this->load->model('customer_model');
-		$res = $this->customer_model->insertChangeBank($oldbank, $duno, $CMND, $TSTC, $giatriTS, $newbank, $name, $sdt,$income, $HK, $CIC, $honNhan);
+		$this->load->model('Customer_model');
+		$res = $this->Customer_model->insertChangeBank($oldbank, $duno, $CMND, $TSTC, $giatriTS, $newbank, $name, $sdt,$income, $HK, $CIC, $honNhan);
 		if($res){
 			$location = "location: ".base_url()."index.php/customer/form_success";
 			header($location);

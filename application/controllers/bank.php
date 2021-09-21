@@ -34,8 +34,8 @@ class Bank extends CI_Controller {
 				$res = array ('0'=>$res);
 			}
 			else {
-				$this->load->model('bank_model');
-				$res=$this->bank_model->getBankById($id);
+				$this->load->model('Bank_model');
+				$res=$this->Bank_model->getBankById($id);
 				
 				//tao set_value
 				$data_value['bank'] = $res[0]['bank'];
@@ -61,8 +61,8 @@ class Bank extends CI_Controller {
 	{
 		$this->load->library('session');
 		if($this->session->userdata('user')){
-			$this->load->model('bank_model');
-			$res = $this->bank_model->getBank();
+			$this->load->model('Bank_model');
+			$res = $this->Bank_model->getBank();
 			$res = array ('data_bank'=>$res);
 			$this->load->view('bankList_view', $res, FALSE);
 		}else {
@@ -106,8 +106,8 @@ class Bank extends CI_Controller {
 					$res = array ('0'=>$res);
 				}
 				else {
-					$this->load->model('bank_model');
-					$res=$this->bank_model->getBankById($id);
+					$this->load->model('Bank_model');
+					$res=$this->Bank_model->getBankById($id);
 					//tao set_value
 					$data_value['bank'] = $res[0]['bank'];
 					$data_value['fix_interest']=$res[0]['fix_interest'];
@@ -158,8 +158,8 @@ class Bank extends CI_Controller {
 				echo "<pre>";
 				print_r($data);
 				echo "</pre>"; 
-				$this->load->model('bank_model');
-				$id_insert = $this->bank_model->insertBank($bank, $fix, $year, $time_buy, $time_build,$time_consumer, $time_bs, $logo);
+				$this->load->model('Bank_model');
+				$id_insert = $this->Bank_model->insertBank($bank, $fix, $year, $time_buy, $time_build,$time_consumer, $time_bs, $logo);
 				if($id_insert)
 				{
 					$ext = $data['upload_data']['file_ext'];
@@ -167,8 +167,8 @@ class Bank extends CI_Controller {
 					$old_path = $config['upload_path'].$logo.$ext;
 					$new_path = $config['upload_path'].$newLogoName;
 					$move_target = $up_folder.$newLogoName;
-					$this->load->model('bank_model');
-					if($this->bank_model->updateLogo($id_insert,$old_path,$new_path,$newLogoName, $move_target)) 
+					$this->load->model('Bank_model');
+					if($this->Bank_model->updateLogo($id_insert,$old_path,$new_path,$newLogoName, $move_target)) 
 					{
 						echo "upload và insert, đổi tên file thành công";
 					}else 
@@ -202,8 +202,8 @@ class Bank extends CI_Controller {
 					$error = array('error' => $this->upload->display_errors());
 					$logo = $this->input->post('logo2');
 					$changeLogo = FALSE;
-					$this->load->model('bank_model');
-					$id_insert = $this->bank_model->updateBank($id, $bank, $fix, $year, $time_buy, $time_build,$time_consumer, $time_bs, $logo);
+					$this->load->model('Bank_model');
+					$id_insert = $this->Bank_model->updateBank($id, $bank, $fix, $year, $time_buy, $time_build,$time_consumer, $time_bs, $logo);
 					if ($id_insert){
 						header($location);
 					}
@@ -215,8 +215,8 @@ class Bank extends CI_Controller {
 			
 				}
 
-				$this->load->model('bank_model');
-				$id_insert = $this->bank_model->updateBank($id, $bank, $fix, $year, $time_buy, $time_build,$time_consumer, $time_bs, $logo);
+				$this->load->model('Bank_model');
+				$id_insert = $this->Bank_model->updateBank($id, $bank, $fix, $year, $time_buy, $time_build,$time_consumer, $time_bs, $logo);
 				if($id_insert && $changeLogo == TRUE)
 				{
 					$ext = $data['upload_data']['file_ext'];
@@ -224,8 +224,8 @@ class Bank extends CI_Controller {
 					$old_path = $config['upload_path'].$logo.$ext;
 					$new_path = $config['upload_path'].$newLogoName;
 					$move_target = $up_folder.$newLogoName;
-					$this->load->model('bank_model');
-					if($this->bank_model->updateLogo($id_insert,$old_path,$new_path,$newLogoName, $move_target)) 
+					$this->load->model('Bank_model');
+					if($this->Bank_model->updateLogo($id_insert,$old_path,$new_path,$newLogoName, $move_target)) 
 					{
 						header($location);
 					}
@@ -245,8 +245,8 @@ class Bank extends CI_Controller {
 	
 	public function xoaBank($id)
 	{
-		$this->load->model('bank_model');
-		$res = $this->bank_model->deleteBank($id);
+		$this->load->model('Bank_model');
+		$res = $this->Bank_model->deleteBank($id);
 		if ($res){
 			header("location: ".base_url()."index.php/bank/listBank");
 		}
@@ -272,8 +272,8 @@ class Bank extends CI_Controller {
 		}else {
 			$spvay = 'Vay tiêu dùng';
 		}
-		$this->load->model('bank_model');
-		$data = $this->bank_model->getBank();
+		$this->load->model('Bank_model');
+		$data = $this->Bank_model->getBank();
 		$data2['mucdich'] = $mucdich;
 		$data2['sotien']=$sotien;
 		$data2['time']=$time;
@@ -291,8 +291,8 @@ class Bank extends CI_Controller {
 	}
 	public function excel($id, $sotien, $tgian, $mucdich, $spvay, $laisuat)
 	{
-		$this->load->model('bank_model');
-		$res = $this->bank_model->getBankById($id);
+		$this->load->model('Bank_model');
+		$res = $this->Bank_model->getBankById($id);
 		$data['sotien']=$sotien;
 		$data['tgian']=$tgian;
 		$data['spvay']=$spvay;

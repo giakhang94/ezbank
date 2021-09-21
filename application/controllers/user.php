@@ -15,8 +15,8 @@ class User extends CI_Controller {
 	{
 		$this->load->library('session');
 		if($this->session->userdata('user')){
-			$this->load->model('user_model');
-			$data  = $this->user_model->getUser();
+			$this->load->model('User_model');
+			$data  = $this->User_model->getUser();
 			$data = array ('data_user'=>$data);
 			$this->load->view('listUser_view', $data,FALSE);	
 		}
@@ -44,8 +44,8 @@ class User extends CI_Controller {
 				//xong set_value
 			}
 			else {
-				$this->load->model('user_model');
-				$res=$this->user_model->getUserById($id);
+				$this->load->model('User_model');
+				$res=$this->User_model->getUserById($id);
 				//tao set_value
 				$data_value['name'] = $res[0]['name'];
 				$data_value['user_name']=$res[0]['user_name'];
@@ -94,7 +94,7 @@ class User extends CI_Controller {
 					//xong set_value
 				}
 				else {
-					$this->load->model('user_model');
+					$this->load->model('User_model');
 					$res=$this->bank_model->getUserById($id);
 					//tao set_value
 					$data_value['name'] = $res[0]['name'];
@@ -115,8 +115,8 @@ class User extends CI_Controller {
 			//re nhanh vo insert hay update
 			$location ="location: ".base_url().'index.php/user/listUser';
 			if ($id == 0) {
-				$this->load->model('user_model');
-				$res = $this->user_model->insertUser($name,$user_name, $pass, $email, $phone);
+				$this->load->model('User_model');
+				$res = $this->User_model->insertUser($name,$user_name, $pass, $email, $phone);
 				if ($res)
 				{
 					header($location);
@@ -124,14 +124,14 @@ class User extends CI_Controller {
 				else {echo "add usser bi loi";}
 			}else {
 
-				$this->load->model('user_model');
-				$old_data = $this->user_model->getUserById($id);
+				$this->load->model('User_model');
+				$old_data = $this->User_model->getUserById($id);
 				$old_pass = $old_data[0]['pass'];
 				if ($pass != $old_pass){
 					$pass = Sha1($pass);
 				}
 				
-				if ($this->user_model->updateUser($id,$name,$user_name, $pass, $email, $phone))
+				if ($this->User_model->updateUser($id,$name,$user_name, $pass, $email, $phone))
 				{
 					header($location);
 				}
@@ -149,8 +149,8 @@ class User extends CI_Controller {
 	{
 		$this->load->library('session');
 		if($this->session->userdata('user')){
-			$this->load->model('user_model');
-			$data  = $this->user_model->getUser();
+			$this->load->model('User_model');
+			$data  = $this->User_model->getUser();
 			$data = array ('data_user'=>$data);
 			$this->load->view('listUser_view', $data,FALSE);	
 		}
