@@ -27,7 +27,7 @@
                 <?php foreach ($data_value2 as $key => $value) :
    
                 ?>
-                    <form action="http://localhost/mvc/ezbank/index.php/bank/insertData/<?php echo $value['id']?>" method="POST" enctype="multipart/form-data" role="">
+                    <form action="<?=base_url()?>index.php/bank/insertData/<?php echo $value['id']?>" method="POST" enctype="multipart/form-data" role="">
                         <legend>Thêm thông tin ngân hàng</legend>
                         <div class="form-group">
                             <?php echo form_error('bank', '<div class="alert alert-danger">', '</div>'); ?>

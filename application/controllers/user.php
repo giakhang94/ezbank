@@ -161,6 +161,13 @@ class User extends CI_Controller {
 		}
 
 	}
+	public function xoaUser($id)
+	{
+		$this->load->model('User_model');
+		if($this->User_model->deleteUser($id)){
+			header("location: ".base_url()."index.php/user/listUser");
+		}
+	}
 
 }
 

@@ -250,6 +250,12 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Xem trang chủ</p>
                 </a>
+              </li> 
+              <li class="nav-item">
+                <a href="logout" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ĐĂNG XUẤT</p>
+                </a>
               </li>
             </ul>
           </li>

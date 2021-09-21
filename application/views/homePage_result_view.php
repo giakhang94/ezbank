@@ -226,7 +226,7 @@
         </div>
 
     </div>
-    <p>Fuck Bank</p>
+
     <!-- Site footer -->
     <?php include "./include/footer.php"?>
 

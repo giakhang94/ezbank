@@ -146,18 +146,18 @@ class Bank extends CI_Controller {
 				
 				if ( ! $this->upload->do_upload('logo')){
 					$error = array('error' => $this->upload->display_errors());
-							echo "<pre>";
-							print_r($error);
-							echo "</pre>"; exit;
+					$logo = "";
+					$this->load->model('Bank_model');
+					$id_insert = $this->Bank_model->insertBank($bank, $fix, $year, $time_buy, $time_build,$time_consumer, $time_bs, $logo);
+					if($id_insert){
+						header("location: ".base_url()."index.php/bank/listbank"); exit;
+					}
 				}
 				else{
 					$data = array('upload_data' => $this->upload->data());
 					echo "success";
 			
 				}
-				echo "<pre>";
-				print_r($data);
-				echo "</pre>"; 
 				$this->load->model('Bank_model');
 				$id_insert = $this->Bank_model->insertBank($bank, $fix, $year, $time_buy, $time_build,$time_consumer, $time_bs, $logo);
 				if($id_insert)
@@ -170,7 +170,7 @@ class Bank extends CI_Controller {
 					$this->load->model('Bank_model');
 					if($this->Bank_model->updateLogo($id_insert,$old_path,$new_path,$newLogoName, $move_target)) 
 					{
-						echo "upload và insert, đổi tên file thành công";
+						header("location: ".base_url()."index.php/bank/listbank");
 					}else 
 					{
 						echo "lỗi upload, insert đổi tên file";

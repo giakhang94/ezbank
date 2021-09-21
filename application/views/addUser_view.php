@@ -20,14 +20,14 @@
         <div class="panel panel-primary">
             <div class="panel-heading">
                     <h3 class="panel-title">Thêm bank #EzBank</h3>
-                    <a class="btn btn-info" href="http://localhost/mvc/ezbank/index.php/user/listuser">Về trang user</a>
-                    <a class="btn btn-success" href="http://localhost/mvc/ezbank/index.php/admin/login" >Về dashboard</a>
+                    <a class="btn btn-info" href="<?php echo base_url();?>index.php/user/listuser">Về trang user</a>
+                    <a class="btn btn-success" href="<?php echo base_url();?>index.php/admin/login" >Về dashboard</a>
             </div>
             <div class="panel-body">
                 <?php foreach ($data_value as $key => $value) :
                     var_dump($value['user_name']);
                 ?>
-                    <form action="http://localhost/mvc/ezbank/index.php/user/insertUser/<?php echo $value['id']?>" method="POST" enctype="multipart/form-data" role="">
+                    <form action="<?php echo base_url();?>index.php/user/insertUser/<?php echo $value['id']?>" method="POST" enctype="multipart/form-data" role="">
                         <legend>Thêm thông tin ngân hàng</legend>
                         <div class="form-group">
                             <?php echo form_error('name', '<div class="alert alert-danger">', '</div>'); ?>
