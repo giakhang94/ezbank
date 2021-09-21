@@ -63,8 +63,8 @@ class Bank_model extends CI_Model {
 		);
 		$this->db->select('*');
 		$this->db->where('id',$id);
-		$res = $this->db->update('bank', $object);
-		return $res;
+		return  $this->db->update('bank', $object);
+
 	}
 	public function getBank()
 	{

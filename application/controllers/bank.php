@@ -203,29 +203,27 @@ class Bank extends CI_Controller {
 					$logo = $this->input->post('logo2');
 					$changeLogo = FALSE;
 					$this->load->model('Bank_model');
-					$id_insert = $this->Bank_model->updateBank($id, $bank, $fix, $year, $time_buy, $time_build,$time_consumer, $time_bs, $logo);
-					if ($id_insert){
+					
+					if ($this->Bank_model->updateBank($id, $bank, $fix, $year, $time_buy, $time_build,$time_consumer, $time_bs, $logo)){
 						header($location);
 					}
 				}
 				else{
 					$data = array('upload_data' => $this->upload->data());
 					echo "success";
-					$changeLogo = TRUE;
-			
+					$changeLogo = TRUE;			
 				}
 
 				$this->load->model('Bank_model');
-				$id_insert = $this->Bank_model->updateBank($id, $bank, $fix, $year, $time_buy, $time_build,$time_consumer, $time_bs, $logo);
-				if($id_insert && $changeLogo == TRUE)
+				if($this->Bank_model->updateBank($id, $bank, $fix, $year, $time_buy, $time_build,$time_consumer, $time_bs, $logo) && $changeLogo == TRUE)
 				{
 					$ext = $data['upload_data']['file_ext'];
-					$newLogoName = strval($id_insert)."_".$logo.$ext;
+					$newLogoName = strval($id)."_".$logo.$ext;
 					$old_path = $config['upload_path'].$logo.$ext;
 					$new_path = $config['upload_path'].$newLogoName;
 					$move_target = $up_folder.$newLogoName;
 					$this->load->model('Bank_model');
-					if($this->Bank_model->updateLogo($id_insert,$old_path,$new_path,$newLogoName, $move_target)) 
+					if($this->Bank_model->updateLogo($id,$old_path,$new_path,$newLogoName, $move_target)) 
 					{
 						header($location);
 					}
@@ -299,8 +297,10 @@ class Bank extends CI_Controller {
 		$data['spvay']=$spvay;
 		$data['mucdich']=$mucdich;
 		$data['laisuat']=$laisuat;
-		$goc = round($sotien/$tgian,3);	
-		for ($i=1; $i <= $tgian ; $i++) { 
+		$mucdich =='3'?$goc=0:$goc =round($sotien/$tgian,3);
+		$mucdich =='3'?$tgian_use=12:$tgian_use = $tgian;
+		$data['tgian_use'] = $tgian_use;
+		for ($i=1; $i <= $tgian_use ; $i++) { 
 			$excel[$i]['thang_thu'] = $i+1;
 			$excel[$i]['goc'] = $goc;
 			$duno = $sotienvay;

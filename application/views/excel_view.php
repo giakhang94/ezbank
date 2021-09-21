@@ -14,7 +14,7 @@
     $spvay = $data_excel['spvay'];
     //tính các biến tạm cho đỡ xài if ở dưới
 
-    $mucdich =='3'?$goc=0:$goc =round($sotien/$tgian,3);
+
 ?>
 
 <!DOCTYPE html>
@@ -56,8 +56,8 @@
             <div class="panel-body">
                 
                 <table class="table table-hover table-excel-info">
-                    <a class ="btn btn-primary nut-excel" href="<?=base_url();?>index.php/bank">Về trang chủ</a>
-                    <p><a class="btn btn-primary nut-excel" href="<?=base_url();?>index.php/bank/form-info">Nhấn vào đây</a> để gửi nhu cầu vay chúng tôi sẽ liên lạc lại </p>
+                    <a class="btn btn-primary nut-excel"  href="<?=base_url();?>index.php/customer">Nhấn vào đây để gửi nhu cầu vay chúng tôi sẽ liên lạc lại </a>
+                    <div class="lib-header-seperator "></div>
                     <thead>
                         <tr>
                             <th>Tháng thứ</th>
@@ -71,7 +71,7 @@
                     <tbody>
                     <?php
 
-                        for($i=1; $i <=$tgian; $i++): 
+                        for($i=1; $i <=$data_excel['tgian_use']; $i++): 
                     ?>
                         <tr>
                             <td><?=$i;?></td>
@@ -92,8 +92,9 @@
                 </table>
                 
             </div>
+            <a class ="btn btn-primary nut-excel" href="<?=base_url();?>index.php/bank">Về trang chủ</a>
         </div>
-
+       
         <?php include "./include/footer.php"?>
 
         <!-- jQuery -->

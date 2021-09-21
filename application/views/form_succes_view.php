@@ -24,7 +24,7 @@
         <!-- xong header -->
         <div class="container thongbao-info">
             <p class="info-text alert alert-success">Cảm ơn bạn đã gửi thông tin, chúng tôi sẽ phản hồi trong thời gian ngắn nhất</p>
-            <a class = "btn btn-primary btnInfo" href="<?php echo base_url();?>/index.php/bank">Về trang chủ </a>    <a class = "btn btn-primary btnInfo" href="<?php echo base_url();?>/index.php/customer">Gửi lại nhu cầu vay</a> 
+            <a class = "btn btn-primary btnInfo" href="<?php echo base_url();?>index.php/bank">Về trang chủ </a>    <a class = "btn btn-primary btnInfo" href="<?php echo base_url();?>index.php/customer">Gửi lại nhu cầu vay</a> 
         </div>
         <!-- site footer -->
         <?php include "./include/footer.php"?>

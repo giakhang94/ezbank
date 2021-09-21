@@ -67,15 +67,15 @@
         </br>
         <form id="input1" class="input-khoanvay" action="<?php echo base_url()?>index.php/bank/caculate" method="POST" enctype="multipart/form-data">
             <select name="mucdich" id="input" class="form-control select-spvay" required="required">
-                <option selected>Chọn sản phẩm vay</option>
+                <option value="1"selected>Chọn sản phẩm vay</option>
                 <option value="1">Vay mua nhà</option>
                 <option value="2">Vay sửa nhà</option>
                 <option value="3">Vay kinh doanh ngắn hạn</option>
-                <option value="3">Vay Ô-tô/Tiêu dùng</option>
+                <option value="8">Vay Ô-tô/Tiêu dùng</option>
             </select>           
         </br>
             <select name="loai_laisuat" id="input" class="form-control select-spvay" required="required">
-                <option selected>Chọn loai lai suat</option>
+                <option value="1"selected>Chọn loai lai suat</option>
                 <option value="1">Ưu đãi 12 tháng</option>
                 <option value="2">Cố định không phạt</option>
             </select>
@@ -85,10 +85,6 @@
                     <input class="form-check-input input-thechap" type="radio" name="thechap" id="thechap" checked>
                     <label class="form-check-label label-thechap" for="thechap">
                       Thế chấp
-                    </label>
-                    <input class="form-check-input" type="radio" name="tinchap" id="tinchap">
-                    <label class="form-check-label" for="tinchap">
-                      Tín chấp
                     </label>
                 </div>
                 </br>
@@ -166,6 +162,7 @@
                                                     else {echo $value['time_buy']; echo " tháng";echo " (tối đa)"; $t = floatval($value['time_build']);}
                                                 }else if($datapost['mucdich']==3) {
                                                     echo $value['time_business'];echo " tháng";
+                                                    $t = floatval($value['time_consumer']);
                                                 }else {
                                                     if($datapost['time'] <= floatval($value['time_consumer'])){
                                                         echo $datapost['time'];echo " tháng";

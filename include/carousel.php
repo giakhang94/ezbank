@@ -23,7 +23,7 @@
                     <h1>Tiếp nhận nhu cầu vay vốn</h1>
                     <p style="font-size: 20px;">-Nhập thông tin cá nhân cơ bản</p>
                     <p style="font-size: 20px;">-Gửi lời nhắn cho chúng tôi</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Gửi nhu cầu</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="<?=base_url()?>index.php/customer" role="button">Gửi nhu cầu</a></p>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                     <h1>Hỗ trợ chuyển ngân hàng vay</h1>
                     <p style="font-size: 20px;">- Bạn đang có dư nợ tại 1 ngân hàng?</p>
                     <p style="font-size: 20px;">- Bạn muốn chuyển sang vay ở ngân hàng khác</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Gửi nhu cầu</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="<?=base_url()?>index.php/customer/changebank" role="button">Gửi nhu cầu</a></p>
                 </div>
             </div>
         </div>

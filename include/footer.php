@@ -113,7 +113,7 @@
         <button class="chat-face">
         <a href="http://m.me/kakarot.sayain"><img src="<?php echo base_url();?>img/fbmessenger-logo.png" alt="" width="50" height="50"></a>
         <button class="hotline">
-        <a href="tel:0903282901"><img src="<?php echo base_url();?>img/phone-logo.png" width="50" height="50"></a>
+        <a href="tel:0903282901 "><img src="<?php echo base_url();?>img/phone-logo.png" width="50" height="50"></a>
         </button>
         </button>
 
