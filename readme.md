@@ -8,16 +8,21 @@
 - khác hàng nhấn nút "xem bảng tính gốc lãi chi tiết" để xem lãi+gốc hàng tháng chi tết ra sao
 
 ## Các đường dẫn chính:
-**Trang chủ** https://codereviewing.com/index.php/bank
-**Thêm (hoặc edit) thông tin user** https://codereviewing.com/index.php/user/addUser
-**Thêm (hoặc edit) thông tin Ngân hàng** https://codereviewing.com/index.php/bank/addBank
-**Xoá user** https://codereviewing.com/index.php/user/xoaUser
-**Xoá Ngân hàng** https://codereviewing.com/index.php/bank/xoaBank
-**Cho Khách điền thông tin vay** https://codereviewing.com/index.php/customer
-**Thêm thông tin vay vào DB** https://codereviewing.com/index.php/customer/insertFormInfo
-**Cho Khách điền thông tin đáo hạn** https://codereviewing.com/index.php/customer/changebank
-**Thêm thông tin đáo hạn vào DB** https://codereviewing.com/index.php/customer/insertChangeBank
+
+- **Trang chủ** https://codereviewing.com/index.php/bank
+- **Thêm (hoặc edit) thông tin user** https://codereviewing.com/index.php/user/addUser
+=>**user name**: Test_user
+=>**Password**: test123
+- **Thêm (hoặc edit) thông tin Ngân hàng** https://codereviewing.com/index.php/bank/addBank
+- **Xoá user** https://codereviewing.com/index.php/user/xoaUser
+- **Xoá Ngân hàng** https://codereviewing.com/index.php/bank/xoaBank
+- **Cho Khách điền thông tin vay** https://codereviewing.com/index.php/customer
+- **Thêm thông tin vay vào DB** https://codereviewing.com/index.php/customer/insertFormInfo
+- **Cho Khách điền thông tin đáo hạn** https://codereviewing.com/index.php/customer/changebank
+- **Thêm thông tin đáo hạn vào DB** https://codereviewing.com/index.php/customer/insertChangeBank
+
 ## Đăng nhập trang admin
-**Link đăng nhập**:https://codereviewing.com/index.php/admin/login
-**Link đăng xuất**:https://codereviewing.com/index.php/admin/logout
+
+- **Link đăng nhập**:https://codereviewing.com/index.php/admin/login
+- **Link đăng xuất**:https://codereviewing.com/index.php/admin/logout
 
